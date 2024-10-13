@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <threads.h>
 
 #define MAX_LINE_LENGTH 1000
 
@@ -31,7 +30,6 @@ int main() {
         struct num digits[MAX_LINE_LENGTH];
         int digit_index = 0;
 
-        // Scan for digits as digits
         for (int i = 0; i < strlen(line) - 1; i++) {
             if (isdigit(line[i]) != 0) {
                 digits[digit_index].digit = line[i];
@@ -40,7 +38,6 @@ int main() {
             }
         }
 
-        // Scan for spelled out digits
         for (int i = 1; i < number_words_len; i++) {
             char *pline = line;
             while ((pline = strstr(pline, number_words[i])) != NULL) {
@@ -51,9 +48,6 @@ int main() {
             }
         }
 
-        // printf("%c%c\n", digits[find_start_or_end(digits, digit_index, "start")].digit,
-        // digits[find_start_or_end(digits, digit_index, "end")].digit);
-
         if (digit_index > 0) {
             int start = digits[find_start_or_end(digits, digit_index, "start")].digit;
             int end = digits[find_start_or_end(digits, digit_index, "end")].digit;
@@ -61,14 +55,6 @@ int main() {
             int num = atoi(num_to_sum);
             sum += num;
         }
-
-        // char num_to_sum[3] = {digits[find_start_or_end(digits, digit_index, "start")].digit,
-        // digits[find_start_or_end(digits, digit_index, "end")].digit, '\0'};
-        // int num = atoi(num_to_sum);
-
-        // sum += num;
-
-        // printf("---------------\n");
     }
 
     fclose(file);
