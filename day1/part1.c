@@ -10,14 +10,12 @@ int main() {
     char line[MAX_LINE_LENGTH];
     int sum = 0;
 
-    // Open the file
     file = fopen("input", "r");
     if (file == NULL) {
         printf("Error opening the file\n");
         return 1;
     }
 
-    // Read and print each line
     while (fgets(line, sizeof(line), file) != NULL) {
         char digits[MAX_LINE_LENGTH];
         int digit_index = 0;
@@ -34,7 +32,6 @@ int main() {
         sum += num;
     }
 
-    // Close the file
     fclose(file);
 
     printf("Sum of all of the calibration values: %d", sum);
