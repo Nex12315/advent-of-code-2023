@@ -28,8 +28,6 @@ int main() {
 
         char *grab_token = strtok_r(NULL, ";", &saveptr1);
         while (grab_token != NULL) {
-            printf("%s\n", grab_token);
-
             char *color_token = strtok_r(grab_token, ",", &saveptr2);
             while (color_token != NULL) {
                 int amount;
@@ -53,11 +51,6 @@ int main() {
 
             grab_token = strtok_r(NULL, ";", &saveptr1);
         }
-
-        printf("Game %d required at least %d red, %d green, %d blue cubes.\n", game_id, red_max,
-               green_max, blue_max);
-
-        printf("---------\n");
 
         sum += red_max * green_max * blue_max;
 
